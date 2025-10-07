@@ -1,0 +1,9 @@
+{{!-- Parcial reutilizable para los distintos botones que usaremos en la aplicación --}}
+{{!-- Utilizamos un parámetro que nos permite validar el uso del botón según el contexto --}}
+{{#if wrapWithform}}
+  <form action="{{action}}" method="POST">
+    <button type="submit" class="btn {{class}}">{{text}}</button>
+  </form>
+{{else}}
+  <button type="submit" class="btn {{class}}">{{text}}</button>
+{{/if}} 

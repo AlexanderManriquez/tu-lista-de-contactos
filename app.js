@@ -1,11 +1,10 @@
 const express = require('express');
 const path = require('path');
 const { engine } = require('express-handlebars');
+const contactsRouter = require('./routes/contactsRoutes');
 
 const app = express();
 const PORT = 3000;
-
-app.use(express.json());
 
 app.engine('handlebars', engine());
 app.set('view engine', 'handlebars');
@@ -21,7 +20,16 @@ app.get('/', (req, res) => {
       title: 'Tu Lista de contactos', 
       description: 'Administra todos tus contactos en un solo lugar: agrega, edita y elimina contactos fácilmente.' 
     });
-});    
+});
+
+app.use('/contacts', contactsRouter);
+// Manejo rutas no encontradas (404)
+app.use((req, res, next) => {
+  res.status(404).render('404', { 
+    title: 'Página no encontrada',
+    message: 'Lo sentimos, la página que buscas no existe.'
+  });
+});
 
 app.listen(PORT, () => {
     console.log(`Servidor escuchando en http://localhost:${PORT}`);
