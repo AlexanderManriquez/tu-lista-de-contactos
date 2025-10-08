@@ -1,0 +1,23 @@
+{{!-- Formulario reutilizable para agregar/editar contactos --}}
+<form action="{{action}}" method="POST">
+  <div>
+    <label for="name">Nombre:</label>
+    <input type="text" id="name" name="name" value="{{contact.name}}" required>
+  </div>
+
+  <div>
+    <label for="phone">Número Telefónico:</label>
+    <input type="text" id="phone" name="phone" value="{{contact.phone}}" required>
+  </div>
+
+  <div>
+    <label for="email">Correo Electrónico:</label>
+    <input type="email" id="email" name="email" value="{{contact.email}}" required>
+  </div>
+
+  {{>button
+    wrapWithform = false
+    text = buttonText
+    class = "send-btn"
+  }}
+</form>

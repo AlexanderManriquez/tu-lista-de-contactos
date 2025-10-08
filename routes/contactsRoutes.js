@@ -4,13 +4,13 @@ const { getAllContacts, addContact, editContact, deleteContact } = require('../c
 const generateId = require('../utils/generateId');
 
 //Ruta que muestra todos los contactos
-router.get('/contacts', (req, res) => {
+router.get('/', (req, res) => {
   const contacts = getAllContacts();
   res.json(contacts);
 });
 
 //Ruta para agregar un nuevo contacto
-router.post('/contacts', (req, res) => {
+router.post('/', (req, res) => {
   const { name, phone, email } = req.body;
 
   if (!name || !phone || !email) {
@@ -31,7 +31,7 @@ router.post('/contacts', (req, res) => {
 });
 
 //Ruta para editar un contacto existente
-router.post('/contacts/edit/:id', (req, res) => {
+router.post('/edit/:id', (req, res) => {
   const contactId = parseInt(req.params.id);
   const updatedContact = editContact(contactId, req.body);
 
@@ -44,7 +44,7 @@ router.post('/contacts/edit/:id', (req, res) => {
 });
 
 //Ruta para eliminar un contacto
-router.post('/contacts/delete/:id', (req, res) => {
+router.post('/delete/:id', (req, res) => {
   const contactId = parseInt(req.params.id);
   const deletedContact = deleteContact(contactId);
 
@@ -55,5 +55,33 @@ router.post('/contacts/delete/:id', (req, res) => {
     res.render('contactList', { contacts: getAllContacts(), message: 'Contacto no encontrado.' });
   }
 })
+
+//Ruta que muestra el formulario para agregar contactos
+router.get('/new', (req, res) => {
+  res.render('addForm', {
+    title: 'Agregar Nuevo Contacto',
+    action: '/contacts',
+    contact: {},
+    buttonText: 'Agregar Contacto'
+  })
+})
+
+//Ruta que muestra el formulario para editar contactos
+router.get('/edit/:id', (req, res) => {
+  const contactId = parseInt(req.params.id);
+  const contacts = getAllContacts();
+  const contact = contacts.find(c => c.id === contactId);
+
+  if (!contact) {
+    return res.status(404).render('404', {message: 'Contacto no encontrado.'});
+  }
+
+  res.render('editForm', {
+    title: 'Editar Contacto',
+    action: `/contacts/edit/${contactId}`,
+    contact,
+    buttonText: 'Guardar Cambios'
+  });
+});
 
 module.exports = router;
