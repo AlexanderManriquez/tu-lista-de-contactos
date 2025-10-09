@@ -1,0 +1,47 @@
+<h2>{{title}}</h2>
+
+{{#if message}}
+  <p class="alert">{{message}}</p>
+{{/if}}
+
+<div class="add-btn-container">
+  {{> button
+    text="Agregar Nuevo Contacto"
+    class="add-btn"
+    href="/contacts/new"
+  }}
+</div>
+
+<table class="contacts-table">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Número telefónico</th>
+      <th>Correo Electrónico</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each contacts}}
+      <tr>
+        <td>{{this.name}}</td>
+        <td>{{this.phone}}</td>
+        <td>{{this.email}}</td>
+        <td class="actions">
+            {{> button
+              href="/contacts/edit/{{this.id}}"
+              text="Editar"
+              class="edit-btn"
+            }}
+
+            {{> button
+              wrapWithForm=true
+              action="/contacts/delete/{{this.id}}"
+              text="Eliminar"
+              class="delete-btn"
+            }}           
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

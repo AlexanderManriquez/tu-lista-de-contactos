@@ -6,7 +6,7 @@ const generateId = require('../utils/generateId');
 //Ruta que muestra todos los contactos
 router.get('/', (req, res) => {
   const contacts = getAllContacts();
-  res.json(contacts);
+  res.render('contactList', { title: 'Tu Lista de Contactos', contacts });
 });
 
 //Ruta para agregar un nuevo contacto

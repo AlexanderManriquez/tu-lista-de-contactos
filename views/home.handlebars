@@ -1,4 +1,18 @@
 <section class="home">
   <h2>{{title}}</h2>
   <p>{{description}}</p>
+
+  <div class="btns-container">
+    {{> button
+      href="/contacts"
+      text="Ver Lista de Contactos"
+      class="href-btn"
+    }}
+
+    {{> button
+      href="/contacts/new"
+      text="Agregar Nuevo Contacto"
+      class="href-btn"
+    }}    
+  </div>
 </section>
