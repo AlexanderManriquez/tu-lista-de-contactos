@@ -5,8 +5,17 @@ const generateId = require('../utils/generateId');
 
 //Ruta que muestra todos los contactos
 router.get('/', (req, res) => {
-  const contacts = getAllContacts();
-  res.render('contactList', { title: 'Tu Lista de Contactos', contacts });
+  const contacts = getAllContacts().map(c => ({
+    ...c,
+    editUrl: `/contacts/edit/${c.id}`,
+    deleteUrl: `/contacts/delete/${c.id}`
+  }));
+
+  res.render('contactList', {
+    title: 'Lista de Contactos',
+    contacts,
+    message: req.query.message || null
+  });
 });
 
 //Ruta para agregar un nuevo contacto
@@ -14,8 +23,7 @@ router.post('/', (req, res) => {
   const { name, phone, email } = req.body;
 
   if (!name || !phone || !email) {
-    const message = 'Todos los campos son obligatorios.';
-    return res.render('contactList', { contacts: getAllContacts(), message });
+    return res.redirect(`/contacts?message=${encodeURIComponent('Todos los campos son obligatorios.')}`);
   }
   
   const newContact = {
@@ -24,10 +32,10 @@ router.post('/', (req, res) => {
     phone,
     email
   }
-
   const addedContact = addContact(newContact);
   const message = `Contacto ${addedContact.name} agregado exitosamente.`;
-  res.render('contactList', { contacts: getAllContacts(), message });
+
+  res.redirect(`/contacts?message=${encodeURIComponent(message)}`);
 });
 
 //Ruta para editar un contacto existente
@@ -37,9 +45,9 @@ router.post('/edit/:id', (req, res) => {
 
   if (updatedContact) {
     const message = `Contacto ${updatedContact.name} editado exitosamente.`;
-    res.render('contactList', { contacts: getAllContacts(), message });
+    res.redirect(`/contacts?message=${encodeURIComponent(message)}`);
   } else {
-    res.render('contactList', { contacts: getAllContacts(), message: 'Contacto no encontrado.' });
+    res.redirect(`/contacts?message=${encodeURIComponent('Contacto no encontrado.')}`);
   }
 });
 
@@ -50,9 +58,9 @@ router.post('/delete/:id', (req, res) => {
 
   if (deletedContact) {
     const message = `Contacto ${deletedContact.name} eliminado exitosamente.`;
-    res.render('contactList', { contacts: getAllContacts(), message });
+    res.redirect(`/contacts?message=${encodeURIComponent(message)}`);
   } else {
-    res.render('contactList', { contacts: getAllContacts(), message: 'Contacto no encontrado.' });
+    res.redirect(`/contacts?message=${encodeURIComponent('Contacto no encontrado.')}`);
   }
 })
 

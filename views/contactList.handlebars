@@ -1,47 +1,52 @@
-<h2>{{title}}</h2>
+<section class="contacts-list-header">
+  <h2>{{title}}</h2>
 
-{{#if message}}
-  <p class="alert">{{message}}</p>
-{{/if}}
+  {{#if message}}
+    <p id="alert-message" class="alert">{{message}}</p>
+  {{/if}}
+</section>
 
-<div class="add-btn-container">
-  {{> button
-    text="Agregar Nuevo Contacto"
-    class="add-btn"
-    href="/contacts/new"
-  }}
-</div>
+<section class="contacts-list-content">
+  <div class="add-btn-container">
+    {{> button
+      text="Agregar Nuevo Contacto"
+      class="add-btn"
+      href="/contacts/new"
+    }}
+  </div>
 
-<table class="contacts-table">
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Número telefónico</th>
-      <th>Correo Electrónico</th>
-      <th>Acciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each contacts}}
+  <table class="contacts-table">
+    <thead>
       <tr>
-        <td>{{this.name}}</td>
-        <td>{{this.phone}}</td>
-        <td>{{this.email}}</td>
-        <td class="actions">
-            {{> button
-              href="/contacts/edit/{{this.id}}"
-              text="Editar"
-              class="edit-btn"
-            }}
-
-            {{> button
-              wrapWithForm=true
-              action="/contacts/delete/{{this.id}}"
-              text="Eliminar"
-              class="delete-btn"
-            }}           
-        </td>
+        <th>Nombre</th>
+        <th>Número telefónico</th>
+        <th>Correo Electrónico</th>
+        <th>Acciones</th>
       </tr>
-    {{/each}}
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      {{#each contacts}}
+        <tr>
+          <td>{{this.name}}</td>
+          <td>{{this.phone}}</td>
+          <td>{{this.email}}</td>
+          <td class="actions">
+              {{> button
+                href=this.editUrl
+                text="Editar"
+                class="edit-btn"
+              }}
+
+              <form action="{{this.deleteUrl}}" method="POST" class="delete-form"> 
+                {{> button
+                  wrapWithForm=false
+                  text="Eliminar"
+                  class="delete-btn"
+                }}
+              </form>             
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</section>
