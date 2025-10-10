@@ -17,7 +17,7 @@ app.use(express.json())
 
 app.get('/', (req, res) => {
     res.render('home', { 
-      title: 'Tu Lista de contactos', 
+      title: 'Tu lista de contactos', 
       description: 'Administra todos tus contactos en un solo lugar: agrega, edita y elimina contactos fácilmente.' 
     });
 });

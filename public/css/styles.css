@@ -1,0 +1,235 @@
+/* Paleta de colores: bg: #141414, text: #f9f9f9, buttons: tono "amarillo": #c49f3b, tono "verde" #809c48, tono "rojo" #c94c4c, colores secundarios: #64647c, #444454, #2c344c */
+@import url('https://fonts.googleapis.com/css2?family=Baskervville:ital@0;1&family=Bitter:ital,wght@0,100..900;1,100..900&family=Chivo:ital,wght@0,100..900;1,100..900&family=Kaushan+Script&family=Matemasie&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Mono&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Protest+Revolution&family=Quicksand:wght@300..700&family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto+Flex:opsz,wght@8..144,100..1000&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Space+Grotesk:wght@300..700&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
+/* Estilos generales */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #141414;
+  color: #f9f9f9;
+  font-family: "Roboto Flex", sans-serif;
+  line-height: 1.6;
+  letter-spacing: 0.3px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}
+
+main.content {
+  flex: 1;
+  padding: 2rem;
+}
+
+.home {
+  padding: 5rem;
+  text-align: center;
+}
+
+.home p {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+h2 {
+  font-size: 2rem;
+  margin: 1rem;
+}
+
+/* Estilos para navbar */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2c344c;
+;
+  padding: 1rem 0.5rem;
+}
+
+nav ul {
+  width: 15%;
+  display: flex;
+  justify-content: space-around;
+  list-style: none;
+  padding: 0 0.5rem;
+}
+
+/* Estilos para la tabla */
+.contacts-list-container {
+  margin: 2rem;
+  padding: 2rem;
+}
+
+.contacts-table {
+  width: 80%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+}
+
+.contacts-table th, .contacts-table td {
+  border: 1px solid #444454;
+  padding: 0.5rem 1rem;
+  text-align: left;
+}
+
+.contacts-table tr:hover {
+  background-color: #2c344c;
+  transition: background-color 0.2s ease;
+}
+
+.contacts-table th {
+  background-color: #2c344c;
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  justify-content: space-around;
+  gap: 0.5rem;
+}
+
+/* Estilos para botones */
+.btn {
+  min-width: 100px;
+  text-align: center;
+  padding: 10px;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  color:#141414;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn:focus {
+  outline: 2px solid #f9f9f9;
+  outline-offset: 2px;
+}
+
+.btn:hover {
+  opacity: 0.9;
+  transform: scale(1.03);
+  border: 1px solid #2c344c;
+  font-weight: bold;
+  box-shadow: 1px 1px 5px #2c344c;
+  color: #f9f9f9;
+}
+
+.send-btn {
+  background-color: #809c48;
+}
+
+.edit-btn {
+  background-color: #c49f3b;
+}
+
+.delete-btn {
+  background-color: #c94c4c;
+}
+
+.href-btn {
+  background-color: #64647c;
+}
+
+.href-btn a, .edit-btn a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Estilos para formularios */
+.form-container {
+  max-width: 800px;
+  margin: 2rem auto;
+}
+
+.form-container h2 {
+  text-align: center;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin: 0.5rem 0; 
+}
+
+.form-group input {
+  margin-bottom: 0.5rem;
+  width: 80%;
+  padding: 0.5rem;
+  border: 1px solid #444454;
+  border-radius: 0.25rem;
+  background-color: #2c344c;
+  color: #f9f9f9;
+  font-size: 1rem;
+}
+
+.form-group input:focus {
+  border-color: #c49f3b;
+  outline: none;
+  box-shadow: 0 0 5px #c49f3b;
+}
+
+/* Estilos para el footer */
+
+footer {
+  background-color: #444454;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+footer p {
+  padding: 0.25rem;
+}
+
+footer:hover {
+  opacity: 1;
+}
+
+/* Estilos para mensajes informativos */
+.alert {
+  color:#809c48;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  letter-spacing: 0.3px;
+  animation: fadeOut 3s ease-in-out forwards;
+}
+
+@keyframes fadeOut {
+  0% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { opacity: 0; display: none; }
+}
+
+
+/* Media Queries */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .contacts-table {
+    width: 100%;
+    font-size: 0.9rem;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+}

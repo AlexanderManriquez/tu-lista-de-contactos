@@ -1,8 +1,20 @@
 [
   {
     "id": 1,
-    "name": "Jackeline Peña",
+    "name": "Stephanie Peña",
     "phone": "956432211",
-    "email": "jacki_pena1@hotmail.com"
+    "email": "steffi_pena1@hotmail.com"
+  },
+  {
+    "id": 3,
+    "name": "Pedro Prado",
+    "phone": "966540923",
+    "email": "pedro_p44@gmail.com"
+  },
+  {
+    "id": 4,
+    "name": "Mario Hugo",
+    "phone": "965769078",
+    "email": "mario_hugo_periodista@hotmail.com"
   }
 ]
