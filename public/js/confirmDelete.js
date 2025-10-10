@@ -1,3 +1,5 @@
+//Script para que el usuario confirme cuando desee eliminar un contacto
+//Se usa SweetAlert2 para mostrar una alerta amigable al usuario
 document.addEventListener('DOMContentLoaded', () => {
   const deleteForms = document.querySelectorAll('form[action^="/contacts/delete/"]');
 

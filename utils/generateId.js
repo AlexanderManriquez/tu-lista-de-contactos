@@ -3,7 +3,7 @@ const path = require("path");
 const { getAllContacts } = require("../controllers/contactsController");
 
 const lastIdPath = path.join(__dirname, '../data/lastId.json');
-
+// Función para generar un Id único y secuencial para cada contacto
 function generateId() {
   let lastId = 0;
 
