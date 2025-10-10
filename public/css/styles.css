@@ -189,7 +189,6 @@ nav ul {
 }
 
 /* Estilos para el footer */
-
 footer {
   background-color: #444454;
   padding: 0.5rem;
@@ -204,6 +203,23 @@ footer p {
 
 footer:hover {
   opacity: 1;
+}
+
+/* Estilos para página 404 */
+.error-page {
+  text-align: center;
+  padding: 5rem;
+}
+
+.error-page h1 {
+  font-size: 4rem;
+  font-weight: bold;
+  color:#c94c4c;
+}
+
+.error-page p {
+  font-size: 1.5rem;
+  margin: 1rem 0;
 }
 
 /* Estilos para mensajes informativos */
