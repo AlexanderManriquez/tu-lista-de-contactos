@@ -12,9 +12,15 @@
     "email": "pedro_p44@gmail.com"
   },
   {
-    "id": 4,
+    "id": 6,
     "name": "Martín Manríquez",
-    "phone": "999321001",
+    "phone": "999000012",
     "email": "martinmanriquez2021@gmail.com"
+  },
+  {
+    "id": 7,
+    "name": "Patricio Reveco",
+    "phone": "998866503",
+    "email": "Patricio.reveco@telefonica.com"
   }
 ]
